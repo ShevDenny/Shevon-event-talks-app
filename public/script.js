@@ -16,6 +16,7 @@ const categorySearch = document.getElementById('category-search');
 const themeToggle = document.getElementById('theme-toggle');
 const searchBtn = document.getElementById('search-btn');
 const resetBtn = document.getElementById('reset-btn');
+const hero = document.querySelector('.hero');
 
 // Initialize
 async function init() {
@@ -41,6 +42,14 @@ async function init() {
     });
 
     themeToggle.addEventListener('click', toggleTheme);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            hero.classList.add('is-sticky');
+        } else {
+            hero.classList.remove('is-sticky');
+        }
+    });
 }
 
 // Fetch data from backend

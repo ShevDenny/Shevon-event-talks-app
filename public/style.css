@@ -99,6 +99,20 @@ body.dark-mode .sun {
     padding: 60px 0;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 61px; /* Just below the navbar */
+    z-index: 90;
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero.is-sticky {
+    padding: 15px 0;
+    box-shadow: var(--shadow);
+}
+
+.hero.is-sticky h2,
+.hero.is-sticky p {
+    display: none;
 }
 
 .hero h2 {
