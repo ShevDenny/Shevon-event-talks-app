@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSummit 2026 | Schedule</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Tech<span>Summit</span></h1>
+            <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                <span class="icon sun">☀️</span>
+                <span class="icon moon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h2>Conference Schedule</h2>
+            <p>Tuesday, March 10, 2026</p>
+            <div class="search-container">
+                <input type="text" id="category-search" placeholder="Search by category (e.g., AI, Performance, UX)..." aria-label="Search categories">
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="schedule-timeline" class="timeline">
+            <!-- Talks will be injected here by JavaScript -->
+            <div class="loading">Loading talks...</div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 TechSummit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Architecting for Scale: Lessons from the Trenches",
+    "speakers": ["Sarah Chen", "Alex Rivera"],
+    "categories": ["Architecture", "Scalability"],
+    "duration": 60,
+    "description": "Explore strategies for building systems that grow alongside your user base without compromising performance or reliability. Sarah and Alex share their experience scaling high-traffic platforms to millions of users."
+  },
+  {
+    "id": 2,
+    "title": "The Future of WebAssembly in the Browser",
+    "speakers": ["Dr. Elena Petrova"],
+    "categories": ["WebAssembly", "Performance"],
+    "duration": 60,
+    "description": "WebAssembly is revolutionizing the web platform by enabling near-native performance for performance-critical applications. This talk covers current advancements and what to expect in the next decade of browser technology."
+  },
+  {
+    "id": 3,
+    "title": "AI-Driven Development: Productivity or Pitfall?",
+    "speakers": ["Marcus Thorne"],
+    "categories": ["AI", "DevOps", "Productivity"],
+    "duration": 60,
+    "description": "Generative AI is changing how we write and deploy code. Marcus examines whether AI-assisted tools truly enhance developer productivity or if they introduce more complexity than they solve."
+  },
+  {
+    "id": 4,
+    "title": "Securing Your Modern Cloud Stack",
+    "speakers": ["Jordan Smith"],
+    "categories": ["Security", "Cloud"],
+    "duration": 60,
+    "description": "In an era of serverless and containers, traditional security models are failing. Learn how to implement a Zero Trust architecture and secure your modern cloud-native stack from end to end."
+  },
+  {
+    "id": 5,
+    "title": "Deep Dive into Node.js Event Loop Internals",
+    "speakers": ["Kenji Sato", "Maria Garcia"],
+    "categories": ["Node.js", "Backend"],
+    "duration": 60,
+    "description": "Unlock the true potential of Node.js by understanding the V8 engine and the libuv event loop. Kenji and Maria walk through how Node handles asynchronous I/O and how to optimize for massive throughput."
+  },
+  {
+    "id": 6,
+    "title": "Building Accessible & Inclusive UX",
+    "speakers": ["Chloe Baker"],
+    "categories": ["UX", "Frontend", "Accessibility"],
+    "duration": 60,
+    "description": "Accessibility is not a feature; it's a fundamental human right. Chloe demonstrates how to build inclusive user experiences that work for everyone, regardless of their physical or cognitive abilities."
+  }
+]
