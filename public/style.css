@@ -112,20 +112,70 @@ body.dark-mode .sun {
 }
 
 .search-container {
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .search-container input {
     width: 100%;
-    padding: 12px 20px;
+    padding: 12px 24px;
     border-radius: 30px;
     border: 1px solid var(--border-color);
     background-color: var(--card-bg);
     color: var(--text-primary);
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.search-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 10px 24px;
+    border-radius: 25px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 14px;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.primary-btn {
+    background-color: var(--accent);
+    color: white;
+}
+
+.primary-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+.secondary-btn {
+    background-color: var(--hero-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.secondary-btn:hover {
+    background-color: var(--border-color);
+}
+
+.speaker-link {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.speaker-link:hover {
+    color: var(--accent);
+    text-decoration: underline;
 }
 
 .search-container input:focus {

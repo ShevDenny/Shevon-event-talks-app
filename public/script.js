@@ -14,6 +14,8 @@ const CONFIG = {
 const scheduleTimeline = document.getElementById('schedule-timeline');
 const categorySearch = document.getElementById('category-search');
 const themeToggle = document.getElementById('theme-toggle');
+const searchBtn = document.getElementById('search-btn');
+const resetBtn = document.getElementById('reset-btn');
 
 // Initialize
 async function init() {
@@ -24,6 +26,17 @@ async function init() {
     // Event Listeners
     categorySearch.addEventListener('input', (e) => {
         currentSearch = e.target.value.toLowerCase();
+        renderSchedule();
+    });
+
+    searchBtn.addEventListener('click', () => {
+        currentSearch = categorySearch.value.toLowerCase();
+        renderSchedule();
+    });
+
+    resetBtn.addEventListener('click', () => {
+        categorySearch.value = '';
+        currentSearch = '';
         renderSchedule();
     });
 
@@ -71,13 +84,16 @@ function renderSchedule() {
     scheduleTimeline.innerHTML = '';
     
     let currentTime = CONFIG.startTime;
-    let talkCount = 0;
 
-    // Filter talks based on search
-    const filteredTalks = allTalks.filter(talk => {
+    const matchesSearch = (talk) => {
         if (!currentSearch) return true;
-        return talk.categories.some(cat => cat.toLowerCase().includes(currentSearch));
-    });
+        const matchesCategory = talk.categories.some(cat => cat.toLowerCase().includes(currentSearch));
+        const matchesSpeaker = talk.speakers.some(speaker => speaker.toLowerCase().includes(currentSearch));
+        return matchesCategory || matchesSpeaker;
+    };
+
+    // Filter talks for the "No results" message
+    const filteredTalks = allTalks.filter(matchesSearch);
 
     if (filteredTalks.length === 0 && currentSearch) {
         scheduleTimeline.innerHTML = `<div class="loading">No talks found for "${currentSearch}"</div>`;
@@ -85,7 +101,7 @@ function renderSchedule() {
     }
 
     allTalks.forEach((talk, index) => {
-        const isVisible = !currentSearch || talk.categories.some(cat => cat.toLowerCase().includes(currentSearch));
+        const isVisible = matchesSearch(talk);
         
         const displayTime = addMinutes(currentTime, 0);
         
@@ -110,7 +126,7 @@ function renderSchedule() {
                     <div class="time-slot">${displayTime}</div>
                     <div class="talk-card">
                         <div class="talk-title">${talk.title}</div>
-                        <div class="talk-speakers">By ${talk.speakers.join(' & ')}</div>
+                        <div class="talk-speakers">By ${talk.speakers.map(s => `<span class="speaker-link" onclick="filterBySpeaker('${s}')">${s}</span>`).join(' & ')}</div>
                         <div class="talk-description">${talk.description}</div>
                         <div class="category-tags">
                             ${talk.categories.map(cat => `<span class="tag" onclick="filterByTag('${cat}')">${cat}</span>`).join('')}
@@ -129,6 +145,12 @@ function renderSchedule() {
 function filterByTag(tag) {
     categorySearch.value = tag;
     currentSearch = tag.toLowerCase();
+    renderSchedule();
+}
+
+function filterBySpeaker(speaker) {
+    categorySearch.value = speaker;
+    currentSearch = speaker.toLowerCase();
     renderSchedule();
 }
 
